@@ -4,6 +4,9 @@ exports.handler = async (event) => {
     // Discord webhook URL
     const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
+    // Log the entire event to inspect the payload
+    console.log('Incoming Sentry Event:', event.body);
+
     // Parse the incoming Sentry webhook payload
     const body = JSON.parse(event.body);
     const { event: sentryEvent, project } = body;
